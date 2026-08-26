@@ -173,36 +173,40 @@ export default function RootLayout({
           <div className="max-w-5xl mx-auto px-4 space-y-6">
             
             {/* Popular Platform Analyses Links */}
-            <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-bold text-slate-600 pb-3 border-b border-slate-100">
-              <span className="text-slate-400 uppercase tracking-wider text-[10px] block w-full sm:w-auto">Popular Analyses:</span>
-              <Link href="/privacy/tiktok" className="hover:text-blue-600 transition-colors">
-                TikTok
-              </Link>
+            <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs font-bold text-slate-600 pb-3 border-b border-slate-100">
+              <span className="text-slate-400 uppercase tracking-wider text-[10px] block w-full sm:w-auto">Popular App Audits:</span>
+              <Link href="/privacy/tiktok" className="hover:text-blue-600 transition-colors">TikTok</Link>
               <span>•</span>
-              <Link href="/privacy/openai-chatgpt" className="hover:text-blue-600 transition-colors">
-                ChatGPT
-              </Link>
+              <Link href="/privacy/discord" className="hover:text-blue-600 transition-colors">Discord</Link>
               <span>•</span>
-              <Link href="/privacy/instagram" className="hover:text-blue-600 transition-colors">
-                Instagram
-              </Link>
+              <Link href="/privacy/openai-chatgpt" className="hover:text-blue-600 transition-colors">ChatGPT</Link>
               <span>•</span>
-              <Link href="/privacy/zoom" className="hover:text-blue-600 transition-colors">
-                Zoom
-              </Link>
+              <Link href="/privacy/zoom" className="hover:text-blue-600 transition-colors">Zoom</Link>
               <span>•</span>
-              <Link href="/privacy/discord" className="hover:text-blue-600 transition-colors">
-                Discord
-              </Link>
+              <Link href="/privacy/instagram" className="hover:text-blue-600 transition-colors">Instagram</Link>
               <span>•</span>
-              <Link href="/privacy/whatsapp" className="hover:text-blue-600 transition-colors">
-                WhatsApp
-              </Link>
+              <Link href="/privacy/whatsapp" className="hover:text-blue-600 transition-colors">WhatsApp</Link>
+              <span>•</span>
+              <Link href="/privacy/slack" className="hover:text-blue-600 transition-colors">Slack</Link>
+              <span>•</span>
+              <Link href="/privacy/spotify" className="hover:text-blue-600 transition-colors">Spotify</Link>
+              <span>•</span>
+              <Link href="/privacy/netflix" className="hover:text-blue-600 transition-colors">Netflix</Link>
+              <span>•</span>
+              <Link href="/privacy/reddit" className="hover:text-blue-600 transition-colors">Reddit</Link>
+              <span>•</span>
+              <Link href="/privacy/github" className="hover:text-blue-600 transition-colors">GitHub</Link>
+              <span>•</span>
+              <Link href="/privacy/notion" className="hover:text-blue-600 transition-colors">Notion</Link>
             </div>
 
-            {/* Specialized Auditor Links */}
+            {/* Specialized Auditor & Articles Links */}
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-600 pb-3 border-b border-slate-100">
-              <span className="text-slate-400 uppercase tracking-wider text-[10px] block w-full sm:w-auto">Compliance Auditors:</span>
+              <span className="text-slate-400 uppercase tracking-wider text-[10px] block w-full sm:w-auto">Compliance & Editorial:</span>
+              <Link href="/articles" className="hover:text-blue-600 transition-colors">
+                Legal Guides & Articles
+              </Link>
+              <span>•</span>
               <Link href="/gdpr-checker" className="hover:text-emerald-600 transition-colors">
                 GDPR Checker
               </Link>

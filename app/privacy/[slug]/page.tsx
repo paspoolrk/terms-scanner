@@ -14,7 +14,10 @@ import {
   ArrowRight,
   Clock,
   Tag,
-  CheckCircle2
+  CheckCircle2,
+  BookOpen,
+  Gavel,
+  Lock
 } from 'lucide-react';
 
 export const dynamic = 'force-static';
@@ -46,8 +49,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     metadataBase: new URL('https://termsscanner.in'),
-    title: `${service.name} Privacy Policy & Terms Audit | Terms Scanner`,
-    description: `Detailed privacy audit of ${service.name}. Risk Score: ${service.riskScore}/10. Key concerns: ${redFlagsList}. Spot hidden traps and data tracking.`,
+    title: `${service.name} Privacy Policy & Terms Audit (2026) | Terms Scanner`,
+    description: `Comprehensive 800+ word privacy audit of ${service.name}. Risk Score: ${service.riskScore}/10. Key concerns: ${redFlagsList}. Learn how to protect your data.`,
     keywords: [
       `${service.name.toLowerCase()} privacy policy`,
       `${service.name.toLowerCase()} terms of service`,
@@ -61,7 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `https://termsscanner.in/privacy/${service.slug}`,
     },
     openGraph: {
-      title: `${service.name} Privacy & Terms Risk Audit (${service.riskScore}/10)`,
+      title: `${service.name} Privacy Policy & Terms Audit (${service.riskScore}/10)`,
       description: service.summary,
       url: `https://termsscanner.in/privacy/${service.slug}`,
       siteName: 'Terms Scanner',
@@ -89,7 +92,7 @@ export default async function ServicePrivacyPage({ params }: PageProps) {
   }
 
   const isHighRisk = service.riskScore >= 7.5;
-  const isMedRisk = service.riskScore >= 5.0 && service.riskScore < 7.5;
+  const isMedRisk = service.riskScore >= 5.5 && service.riskScore < 7.5;
 
   const scoreBadgeBg = isHighRisk
     ? 'bg-rose-50 text-rose-700 border-rose-200'
@@ -180,7 +183,23 @@ export default async function ServicePrivacyPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* SECTION 1: Key Red Flags & Clauses */}
+        {/* SECTION 1: Editorial Policy & Legal Breakdown (Crawlable SSG Text) */}
+        <section className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-md space-y-4">
+          <div className="flex items-center space-x-2 border-b border-slate-100 pb-3">
+            <BookOpen className="w-5 h-5 text-blue-600" />
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+              In-Depth Legal & Terms Breakdown
+            </h2>
+          </div>
+
+          <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed font-normal pt-2">
+            {service.editorialBreakdown.map((paragraph, idx) => (
+              <p key={idx}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION 2: Key Red Flags & Clauses */}
         <section className="space-y-4">
           <div className="flex items-center space-x-2">
             <ShieldAlert className="w-5 h-5 text-rose-600" />
@@ -209,7 +228,20 @@ export default async function ServicePrivacyPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* SECTION 2: Data Collected & Tracked */}
+        {/* SECTION 3: Mandatory Arbitration & Legal Jurisdiction */}
+        <section className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-md space-y-3">
+          <div className="flex items-center space-x-2 border-b border-slate-100 pb-3">
+            <Gavel className="w-5 h-5 text-purple-600" />
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+              Mandatory Arbitration & Dispute Resolution
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pt-1">
+            {service.arbitrationDetails}
+          </p>
+        </section>
+
+        {/* SECTION 4: Data Collected & Tracked */}
         <section className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-md space-y-4">
           <div className="flex items-center space-x-2">
             <Database className="w-5 h-5 text-blue-600" />
@@ -218,7 +250,7 @@ export default async function ServicePrivacyPage({ params }: PageProps) {
             </h2>
           </div>
           <p className="text-xs text-slate-600">
-            Below is a breakdown of device identifiers, telemetry, and personal telemetry metrics gathered according to official disclosures:
+            Below is a breakdown of device identifiers, telemetry, and personal metrics gathered according to official disclosures:
           </p>
 
           <div className="flex flex-wrap gap-2.5 pt-2">
@@ -234,7 +266,29 @@ export default async function ServicePrivacyPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* SECTION 3: Call-To-Action (Scan Your Custom Contract) */}
+        {/* SECTION 5: User Privacy Protection Tips */}
+        <section className="bg-emerald-50/70 border border-emerald-200 rounded-3xl p-6 sm:p-8 shadow-md space-y-4">
+          <div className="flex items-center space-x-2 border-b border-emerald-200/80 pb-3">
+            <Lock className="w-5 h-5 text-emerald-700" />
+            <h2 className="text-xl sm:text-2xl font-extrabold text-emerald-900 tracking-tight">
+              Actionable User Privacy Tips for {service.name}
+            </h2>
+          </div>
+          <p className="text-xs text-emerald-800">
+            Follow these practical steps to minimize data exposure and secure your personal details:
+          </p>
+
+          <ul className="space-y-2.5 pt-1">
+            {service.userPrivacyTips.map((tip, idx) => (
+              <li key={idx} className="flex items-start space-x-2 text-xs sm:text-sm text-emerald-900 font-medium">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span>{tip}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* SECTION 6: Call-To-Action (Scan Your Custom Contract) */}
         <section className="p-8 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-3xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center sm:text-left">
             <span className="inline-flex items-center space-x-1 px-3 py-1 bg-white/20 rounded-full text-[11px] font-extrabold uppercase tracking-wider backdrop-blur-md">

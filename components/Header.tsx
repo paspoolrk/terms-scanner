@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Sparkles, Cpu, Lock } from 'lucide-react';
+import { ShieldCheck, Sparkles, Cpu, Lock, BookOpen } from 'lucide-react';
 
 export const Header: React.FC = () => {
   return (
@@ -33,7 +33,14 @@ export const Header: React.FC = () => {
 
         {/* Navigation & Status Badges */}
         <div className="flex items-center space-x-3 sm:space-x-4">
-          <nav className="hidden md:flex items-center space-x-5 text-xs font-bold text-slate-600 mr-2">
+          <nav className="hidden md:flex items-center space-x-4 text-xs font-bold text-slate-600 mr-2">
+            <Link href="/privacy" className="hover:text-blue-600 transition-colors">
+              App Audits
+            </Link>
+            <Link href="/articles" className="hover:text-blue-600 transition-colors flex items-center space-x-1">
+              <BookOpen className="w-3.5 h-3.5 text-blue-600" />
+              <span>Legal Guides</span>
+            </Link>
             <Link href="/gdpr-checker" className="hover:text-blue-600 transition-colors">
               GDPR
             </Link>
@@ -45,9 +52,6 @@ export const Header: React.FC = () => {
             </Link>
             <Link href="/soc2-evaluator" className="hover:text-blue-600 transition-colors">
               SOC 2
-            </Link>
-            <Link href="/about" className="hover:text-blue-600 transition-colors">
-              About
             </Link>
           </nav>
 

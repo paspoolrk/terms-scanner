@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { POPULAR_SERVICES } from '@/lib/services';
+import { ARTICLES } from '@/lib/articles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://termsscanner.in';
@@ -11,6 +12,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/articles`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/gdpr-checker`,
@@ -62,12 +75,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const programmaticServiceRoutes: MetadataRoute.Sitemap = POPULAR_SERVICES.map(service => ({
+  const serviceRoutes: MetadataRoute.Sitemap = POPULAR_SERVICES.map(service => ({
     url: `${baseUrl}/privacy/${service.slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...programmaticServiceRoutes];
+  const articleRoutes: MetadataRoute.Sitemap = ARTICLES.map(article => ({
+    url: `${baseUrl}/articles/${article.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...articleRoutes];
 }
