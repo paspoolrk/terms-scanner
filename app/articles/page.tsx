@@ -1,9 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { Header } from '@/components/Header';
 import { ARTICLES } from '@/lib/articles';
-import { BookOpen, Clock, Calendar, ArrowRight, ShieldCheck } from 'lucide-react';
+import { ArticlesExplorer } from '@/components/ArticlesExplorer';
+import { BookOpen } from 'lucide-react';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://termsscanner.in'),
@@ -47,45 +47,12 @@ export default function ArticlesIndexPage() {
             Legal & Privacy Guides
           </h1>
           <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
-            Expert educational analysis on contract security, regulatory compliance, predatory legalese, and digital data rights.
+            16 in-depth educational guides analyzing contract security, regulatory compliance, predatory legalese, and digital data rights.
           </p>
         </div>
 
-        {/* Article Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {ARTICLES.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/articles/${article.slug}`}
-              className="p-6 bg-white border border-slate-200 hover:border-blue-500 rounded-3xl transition-all shadow-sm hover:shadow-md group flex flex-col justify-between space-y-4"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-[11px] font-bold border border-slate-200">
-                    {article.category}
-                  </span>
-                  <span className="text-xs text-slate-400 font-medium flex items-center space-x-1">
-                    <Clock className="w-3 h-3" />
-                    <span>{article.readTime}</span>
-                  </span>
-                </div>
-
-                <h2 className="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
-                  {article.title}
-                </h2>
-
-                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
-                  {article.summary}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-all">
-                <span>Read Full Article</span>
-                <ArrowRight className="w-4 h-4" />
-              </div>
-            </Link>
-          ))}
-        </div>
+        {/* Dynamic Client Explorer */}
+        <ArticlesExplorer initialArticles={ARTICLES} />
 
       </main>
     </div>

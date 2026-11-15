@@ -515,6 +515,334 @@ export const POPULAR_SERVICES: ServiceAnalysis[] = [
       'Audit page sharing settings to ensure private pages are not accidentally set to "Share to Web".',
       'Review third-party integration permissions under Workspace Settings > Connections.'
     ]
+  },
+  {
+    slug: 'google',
+    name: 'Google (Alphabet)',
+    category: 'Search, Cloud & Mobile Ecosystem',
+    riskScore: 8.5,
+    lastUpdated: '2026-11-10',
+    summary: 'Google processes comprehensive cross-service telemetry across Android, Search, YouTube, Maps, and Chrome to power ad targeting, personalized recommendations, and Gemini AI training.',
+    editorialBreakdown: [
+      'Alphabet operates the largest unified consumer data ecosystem in the digital world. Through Google Accounts, data from Google Search, YouTube, Chrome, Google Maps, Gmail, and Android mobile devices is linked to construct multifaceted consumer identity and intent profiles.',
+      'Under Google’s consolidated Privacy Policy, search queries, location histories, voice interactions, and browsing habits across millions of third-party websites utilizing Google Analytics and Google AdSense are gathered. This continuous tracking enables Google to predict user purchasing intent and deliver hyper-targeted advertising.',
+      'With the rollout of Gemini AI features into Workspace (Docs, Gmail) and Android (Gemini Nano/Pro), Google analyzes user prompts, document drafts, and multimodal inputs to refine AI capabilities, though enterprise Google Workspace accounts maintain contractual opt-outs from foundation model training.',
+      'Google retains search and location history until users manually delete it or set automated 3-month or 18-month auto-deletion windows. Deleting your Google account does not immediately remove cached analytical backups and business telemetry logs.'
+    ],
+    keyRedFlags: [
+      {
+        title: 'Universal Ecosystem Data Aggregation',
+        detail: 'Links search history, YouTube viewing, Maps GPS trips, and Android app telemetry to a single master profile.'
+      },
+      {
+        title: 'Third-Party Web Tracker Monopoly',
+        detail: 'Monitors non-Google websites via Google Analytics, Google Tag Manager, and Google AdSense scripts.'
+      },
+      {
+        title: 'Location History Tracking Without Open App',
+        detail: 'Background location history logs Wi-Fi access points and cellular towers even when Maps is inactive.'
+      }
+    ],
+    dataCollected: [
+      'Search Queries, Video Watch History & Chrome Browsing Logs',
+      'Precise GPS Route Coordinates & Elevation Data',
+      'Voice & Audio Recordings from Assistant/Gemini',
+      'Device Identifiers, IMEI, Wi-Fi BSSIDs & Cellular Towers',
+      'Purchase Receipts, Flight Confirmations & Gmail Receipts'
+    ],
+    arbitrationDetails: 'Governed by California law; disputes settled via binding individual arbitration under AAA rules in Santa Clara County, CA, barring class lawsuits.',
+    userPrivacyTips: [
+      'Navigate to "My Google Activity" and set Auto-Delete to 3 months.',
+      'Turn OFF "Location History" (Timeline) and "Voice and Audio Recordings".',
+      'Review third-party app permissions at myaccount.google.com/permissions.'
+    ]
+  },
+  {
+    slug: 'apple',
+    name: 'Apple',
+    category: 'Hardware, Mobile OS & Cloud Services',
+    riskScore: 4.8,
+    lastUpdated: '2026-11-05',
+    summary: 'Apple emphasizes on-device processing and App Tracking Transparency (ATT), but collects first-party telemetry across the App Store, Apple Music, iCloud, and Siri.',
+    editorialBreakdown: [
+      'Apple positions privacy as a primary product differentiator, enforcing strict App Tracking Transparency (ATT) frameworks that require third-party iOS applications to obtain affirmative user permission prior to accessing IDFA tracking identifiers.',
+      'However, privacy researchers have noted that Apple’s first-party ecosystem continues to collect diagnostic and behavioral data. First-party analytics track user search habits inside the App Store, Apple News interactions, Apple Podcasts plays, and Siri acoustic command patterns.',
+      'While Apple implements Advanced Data Protection (ADP) for iCloud—providing end-to-end encryption for iCloud Drive, Notes, and Backups—this setting is disabled by default. Standard iCloud storage keeps encryption keys with Apple, allowing server-side decryption if compelled by lawful government warrants.',
+      'With Apple Intelligence, Apple utilizes on-device neural processing combined with Private Cloud Compute (PCC). Apple states that server-bound prompts processed on PCC are never retained or logged and cannot be accessed by Apple engineers.'
+    ],
+    keyRedFlags: [
+      {
+        title: 'First-Party App Store Telemetry',
+        detail: 'Exempt from third-party ATT prompts; tracks user App Store searches, tap interactions, and app downloads.'
+      },
+      {
+        title: 'Standard iCloud Decryption Capability',
+        detail: 'Unless Advanced Data Protection is manually enabled, Apple retains decryption keys to user iCloud backups.'
+      },
+      {
+        title: 'Hardware Serial & Device Identity Binding',
+        detail: 'Binds purchases, activation locks, and subscriptions to physical hardware UDIDs and Apple Account IDs.'
+      }
+    ],
+    dataCollected: [
+      'App Store Search Queries, Clicks & Purchase History',
+      'Device UDID, IMEI, IP Address & Wi-Fi MAC Address',
+      'Siri Voice Command Audio Snippets (if opted in)',
+      'iCloud Storage Metadata & File Transfer Timestamps',
+      'Apple Pay Tokenized Transaction Metadata'
+    ],
+    arbitrationDetails: 'Governed by California law; disputes subject to individual arbitration or Northern California federal court venue.',
+    userPrivacyTips: [
+      'Turn ON "Advanced Data Protection" in iCloud Settings to enable end-to-end encryption.',
+      'Disable "Personalized Ads" in Settings > Privacy & Security > Apple Advertising.',
+      'Disable "Improve Siri & Dictation" to prevent voice clip transmission to Apple servers.'
+    ]
+  },
+  {
+    slug: 'microsoft',
+    name: 'Microsoft',
+    category: 'Operating Systems, Cloud & Enterprise Productivity',
+    riskScore: 6.9,
+    lastUpdated: '2026-10-28',
+    summary: 'Windows 11 and Microsoft 365 collect diagnostic telemetry, app interaction metrics, and Copilot AI queries. Windows diagnostic levels include optional memory crash dumps.',
+    editorialBreakdown: [
+      'Microsoft operates across enterprise software (Windows, Office 365, Azure), gaming (Xbox), professional networking (LinkedIn), and consumer devices. The breadth of this footprint creates significant data processing obligations under international privacy laws.',
+      'Windows 11 collects operating system telemetry divided into "Required" and "Optional" tiers. While Required telemetry captures device specifications, crash reports, and driver errors, Optional diagnostic data captures browser history in Microsoft Edge, inking and typing samples, and detailed application execution logs.',
+      'Microsoft Copilot integration within Windows and Office 365 processes document drafts, email threads, and search inputs. Consumer Microsoft accounts share prompt data to improve AI services, while commercial enterprise Microsoft 365 customers are protected by commercial data protection boundaries.',
+      'LinkedIn, owned by Microsoft, uses professional work histories, connection networks, and job application telemetry to power targeted B2B recruitment advertising and generative AI assistance tools.'
+    ],
+    keyRedFlags: [
+      {
+        title: 'Extensive Windows 11 Diagnostic Telemetry',
+        detail: 'Optional diagnostic tier uploads application usage patterns, inking inputs, and detailed crash dumps.'
+      },
+      {
+        title: 'Copilot AI Ingestion on Consumer Tiers',
+        detail: 'Consumer versions of Copilot may use search queries and document inputs for algorithmic enhancement.'
+      },
+      {
+        title: 'LinkedIn Professional Graph Monetization',
+        detail: 'Monetizes user employment histories, messaging frequency, and skills profiles for corporate recruiting tools.'
+      }
+    ],
+    dataCollected: [
+      'Windows OS Telemetry, Crash Reports & Hardware Specs',
+      'Edge Web Browsing History & Search Queries via Bing',
+      'Office 365 Document Metadata & Edit Timestamps',
+      'Microsoft Copilot Prompts & Completion Histories',
+      'LinkedIn Network Connections & Profile Views'
+    ],
+    arbitrationDetails: 'Binding individual arbitration under AAA rules in King County, Washington; class action and jury waivers apply.',
+    userPrivacyTips: [
+      'In Windows 11 Settings > Privacy & Security > Diagnostics & feedback, set data to "Required only".',
+      'Turn off "Tailored experiences" and "Let Microsoft provide personalized recommendations".',
+      'Review LinkedIn Data Privacy settings to disable AI model training on professional profile data.'
+    ]
+  },
+  {
+    slug: 'amazon',
+    name: 'Amazon',
+    category: 'E-Commerce, Cloud Infrastructure & Smart Home',
+    riskScore: 7.8,
+    lastUpdated: '2026-11-02',
+    summary: 'Amazon aggregates consumer purchase history, credit metrics, Prime Video viewing, Alexa voice logs, and Ring video camera feeds to construct expansive household profiles.',
+    editorialBreakdown: [
+      'Amazon’s data collection extends far beyond online shopping cart checkouts. The company maintains an integrated smart-home ecosystem encompassing Ring doorbell cameras, Blink home security, Alexa smart speakers, Kindle e-readers, and Fire TV devices.',
+      'Alexa smart home appliances continuously monitor room audio for wake words ("Alexa"). Once activated, audio clips are streamed to Amazon cloud servers for acoustic recognition. While users can configure auto-deletion, historical voice data was previously stored indefinitely by default.',
+      'Ring video doorbells and security cameras record motion events and neighborhood surveillance feeds. Amazon previously faced scrutiny regarding law enforcement access to Ring camera footage without warrants, leading to policy updates requiring formal legal warrants.',
+      'Amazon’s retail advertising network has grown into the third-largest digital advertising platform globally, using exact purchasing histories, product search abandoned carts, and Prime streaming habits to deliver sponsored product placements.'
+    ],
+    keyRedFlags: [
+      {
+        title: 'Smart Home Acoustic & Video Monitoring',
+        detail: 'Ring cameras and Alexa microphones record ambient audio and video clips in and around personal residences.'
+      },
+      {
+        title: 'Purchase History Monetization',
+        detail: 'Exact purchase timestamps, payment methods, and return rates are analyzed to target sponsored merchandise.'
+      },
+      {
+        title: 'Third-Party Alexa Skills Permissions',
+        detail: 'Enabling third-party Alexa skills allows skill developers to collect custom user voice inputs.'
+      }
+    ],
+    dataCollected: [
+      'Retail Order Histories, Payment Cards & Delivery Addresses',
+      'Alexa Voice Command Audio Files & Transcripts',
+      'Ring Doorbell Video Clips & Motion Sensor Logs',
+      'Prime Video Watch History & Kindle Book Reading Speeds',
+      'IP Address, Device Serial Numbers & Wi-Fi Credentials'
+    ],
+    arbitrationDetails: 'Governed by Washington state law; disputes resolved through individual arbitration under AAA rules.',
+    userPrivacyTips: [
+      'In the Alexa app, navigate to Privacy > Review Voice History and select "Automatically delete recordings".',
+      'In Ring settings, disable "Community Requests" and enable End-to-End Video Encryption.',
+      'Clear your Amazon browsing history in "Browsing History > Manage history".'
+    ]
+  },
+  {
+    slug: 'meta-facebook',
+    name: 'Meta (Facebook)',
+    category: 'Social Networking & Advertising Platform',
+    riskScore: 8.9,
+    lastUpdated: '2026-11-12',
+    summary: 'Facebook aggregates social relationships, facial recognition tags, group participation, and off-Facebook web activity to operate the world’s most granular behavioral ad targeting system.',
+    editorialBreakdown: [
+      'Meta Platforms, Inc. (formerly Facebook) is the pioneer of modern behavioral advertising profiling. With over 3 billion monthly active users across Facebook, Meta’s tracking infrastructure captures interpersonal communication, social affinity graphs, political interests, and consumer buying trends.',
+      'A core component of Meta’s data empire is "Off-Facebook Activity." Thousands of mobile applications and millions of commercial websites embed Meta Pixel code, Facebook SDKs, and Facebook Login integrations. Whenever you visit an online retailer or book a flight, those websites send your IP address and shopping cart telemetry back to Meta.',
+      'Meta also analyzes content uploaded to Facebook groups, marketplace listings, private messages via Messenger, and live video feeds using artificial intelligence to classify user interests and detect policy violations.',
+      'Meta’s Terms of Service mandate individual binding arbitration for US users, waiving the right to participate in class-action lawsuits or jury trials for privacy breaches, while European users retain statutory rights under the GDPR.'
+    ],
+    keyRedFlags: [
+      {
+        title: 'Pervasive Off-Facebook Web Tracking',
+        detail: 'Aggregates user browsing, cart checkouts, and app launches from external websites via Meta Pixel.'
+      },
+      {
+        title: 'Shadow Profiling of Non-Users',
+        detail: 'Builds tracking identities for individuals who have never created a Facebook account using web cookies.'
+      },
+      {
+        title: 'AI Training on Public Posts & Photos',
+        detail: 'Uses public posts, captions, and photos to train Meta AI foundation models without separate royalties.'
+      }
+    ],
+    dataCollected: [
+      'Social Graph, Friend Connections & Messenger Chats',
+      'Photos, Videos, Facial Feature Landmarks & EXIF Tags',
+      'Off-Facebook Purchases, App Events & Browsing Logs',
+      'Precise GPS Locations, Wi-Fi Networks & Cellular Signals',
+      'Device Battery Level, Storage Space & Installed Apps'
+    ],
+    arbitrationDetails: 'Disputes settled via individual binding arbitration under AAA rules in San Mateo County, CA. Strict class action waiver.',
+    userPrivacyTips: [
+      'Navigate to Meta Accounts Center > Your Information & Permissions > Off-Meta Activity, and select "Disconnect Future Activity".',
+      'Disable "Face Recognition" and tag suggestions in Settings.',
+      'Use browser extensions like Privacy Badger or Firefox Multi-Account Containers to isolate Meta tracking.'
+    ]
+  },
+  {
+    slug: 'x-twitter',
+    name: 'X (formerly Twitter)',
+    category: 'Microblogging, Public Feeds & Social Media',
+    riskScore: 7.9,
+    lastUpdated: '2026-11-08',
+    summary: 'X processes public tweets, direct messages, and engagement metrics to train xAI’s Grok models. Location tracking, biometric verification, and payment data are also collected.',
+    editorialBreakdown: [
+      'Following its rebranding under X Corp., the platform updated its Privacy Policy and Terms of Service to support expanded data monetization and artificial intelligence initiatives.',
+      'Under section 2.1 of X’s Terms of Service, user posts, replies, quotes, bookmarks, and public interactions are explicitly licensed to X Corp. and its affiliates (including xAI) to train Grok artificial intelligence models. While users can toggle AI model training off in account settings, the setting is enabled by default.',
+      'X’s updated privacy policy also reserves the right to collect biometric data (such as facial selfies for verified identity confirmation) and employment/educational history for job posting features.',
+      'Direct Messages (DMs) on X are not end-to-end encrypted by default. While optional encrypted DMs exist for verified subscribers, non-encrypted DMs remain accessible to X automated moderation systems.'
+    ],
+    keyRedFlags: [
+      {
+        title: 'Default Public Post Ingestion for Grok AI',
+        detail: 'User posts, replies, and reading habits are used to train xAI generative foundation models.'
+      },
+      {
+        title: 'Biometric & Employment Data Collection',
+        detail: 'Explicit terms allowing harvesting of facial biometric selfies and professional employment history.'
+      },
+      {
+        title: 'Unencrypted Direct Messaging by Default',
+        detail: 'Standard DMs are decrypted on X servers and accessible to internal safety tools.'
+      }
+    ],
+    dataCollected: [
+      'Public Posts, Replies, Bookmarks & Video Views',
+      'Grok AI Prompts & Conversation Interactions',
+      'Device Identifiers, IP Address & Operating System',
+      'Biometric Verification Selfies (for premium accounts)',
+      'Payment Information & Subscription Transaction Records'
+    ],
+    arbitrationDetails: 'Governed by Texas law; disputes resolved via individual binding arbitration under AAA rules in Bastrop County or Dallas, TX.',
+    userPrivacyTips: [
+      'In Settings > Privacy and safety > Data sharing and personalization > Grok, UNCHECK "Allow your posts to be used for Grok training".',
+      'Disable "Personalized ads based on your off-X activity".',
+      'Turn off "Precise location" in Location Information settings.'
+    ]
+  },
+  {
+    slug: 'uber',
+    name: 'Uber',
+    category: 'Ride-Hailing, Logistics & Food Delivery',
+    riskScore: 7.2,
+    lastUpdated: '2026-10-25',
+    summary: 'Uber collects real-time GPS locations, trip routes, movement sensor telemetry, in-app audio recordings, and payment transaction logs across rides and food delivery.',
+    editorialBreakdown: [
+      'Uber Technologies, Inc. operates a massive global transportation and logistics network processing millions of rides and Uber Eats deliveries daily. Providing real-time dispatch and driver tracking requires continuous geospatial data collection.',
+      'Uber tracks precise GPS coordinates while the mobile application is active and may collect location data for up to several minutes following trip completion to resolve safety disputes and confirm drop-off accuracy. Movement sensors (accelerometer and gyroscope) in passenger and driver devices are analyzed to detect vehicle crashes and evaluate driving safety.',
+      'In many jurisdictions, Uber offers an optional "Audio Recording" safety feature allowing riders and drivers to record trip conversations. While these audio files are encrypted and stored on the device until a safety report is filed, submitting a report transfers the raw recording to Uber safety investigators.',
+      'Uber Advertising delivers sponsored listings, targeted video ads, and merchant deals based on user destination patterns, frequent restaurant orders, and travel times.'
+    ],
+    keyRedFlags: [
+      {
+        title: 'Continuous Real-Time GPS Tracking',
+        detail: 'Logs precise pickup, route trajectory, and drop-off coordinates for every trip and delivery.'
+      },
+      {
+        title: 'Destination-Based Ad Profiling',
+        detail: 'Utilizes travel patterns (airports, nightlife venues, medical clinics) to categorize user demographics for ads.'
+      },
+      {
+        title: 'Device Gyroscope & Movement Telemetry',
+        detail: 'Monitors accelerometer readings to record speed, braking force, and smartphone motion.'
+      }
+    ],
+    dataCollected: [
+      'Precise GPS Route Coordinates & Trip Timestamps',
+      'Payment Methods, Credit Cards & Tip Amounts',
+      'Uber Eats Dietary Preferences & Delivery Addresses',
+      'Device Motion Sensors (Accelerometer/Gyroscope)',
+      'In-App Safety Audio Recordings (when activated)'
+    ],
+    arbitrationDetails: 'Strict mandatory individual arbitration clause under AAA rules, specifically enforcing class action waivers for consumer disputes.',
+    userPrivacyTips: [
+      'In device settings, set Uber location access to "While Using App" rather than "Always".',
+      'In Uber Privacy settings, turn off "Personalized Ads and Offers".',
+      'Audit and delete past trip address history under Account > Settings > Privacy.'
+    ]
+  },
+  {
+    slug: 'airbnb',
+    name: 'Airbnb',
+    category: 'Short-Term Rental & Travel Hospitality',
+    riskScore: 6.7,
+    lastUpdated: '2026-11-01',
+    summary: 'Airbnb requires government ID verification, background checks, host surveillance disclosures, and travel communication monitoring to facilitate lodging bookings.',
+    editorialBreakdown: [
+      'Airbnb connects property hosts with travelers across over 220 countries. Operating a global marketplace involving physical property access requires stringent identity verification and risk screening policies.',
+      'Airbnb mandates that guests and hosts submit official government identification documents (such as passports, driver’s licenses, or national ID cards) along with real-time selfie photographs to verify account authenticity. In certain jurisdictions, Airbnb conducts background checks through third-party screening databases to check for felony convictions and sex offender registries.',
+      'Airbnb enforced a global ban on indoor security cameras inside listings in 2024. However, exterior surveillance devices—such as Ring doorbell cameras and noise-monitoring decibel sensors—are permitted provided they are explicitly disclosed in the listing description and do not monitor private outdoor spaces.',
+      'All communications between hosts and guests sent via the Airbnb messaging inbox are monitored and indexed by automated safety filters to prevent off-platform booking scams, harassment, and contract circumvention.'
+    ],
+    keyRedFlags: [
+      {
+        title: 'Mandatory Government ID & Biometric Verification',
+        detail: 'Requires uploading unredacted passports/licenses and facial verification selfies for booking privileges.'
+      },
+      {
+        title: 'Automated Messaging Inbox Surveillance',
+        detail: 'Scans private chat threads between guests and hosts to detect phone numbers, emails, and off-platform payments.'
+      },
+      {
+        title: 'Third-Party Criminal Background Checks',
+        detail: 'Queries criminal records and sex offender registries using user identity records where permitted by law.'
+      }
+    ],
+    dataCollected: [
+      'Government ID Cards, Passports & Biometric Selfies',
+      'Travel Itineraries, Dates, Lodging Addresses & Guest Lists',
+      'Host-Guest In-App Chat Messages & Phone Records',
+      'Payment Card Numbers, Bank Routing & Billing Details',
+      'Exterior Security Camera Disclosures & Noise Decibel Metrics'
+    ],
+    arbitrationDetails: 'Governed by AAA rules for US residents; requires binding individual arbitration in San Francisco, California with class litigation waivers.',
+    userPrivacyTips: [
+      'Review listing descriptions carefully for disclosed exterior security cameras and decibel noise sensors.',
+      'Keep all communications strictly within the platform to maintain mediation protections.',
+      'Request account data archives under Privacy & Sharing > Download your personal data.'
+    ]
   }
 ];
 

@@ -198,6 +198,22 @@ export default function RootLayout({
               <Link href="/privacy/github" className="hover:text-blue-600 transition-colors">GitHub</Link>
               <span>•</span>
               <Link href="/privacy/notion" className="hover:text-blue-600 transition-colors">Notion</Link>
+              <span>•</span>
+              <Link href="/privacy/google" className="hover:text-blue-600 transition-colors">Google</Link>
+              <span>•</span>
+              <Link href="/privacy/apple" className="hover:text-blue-600 transition-colors">Apple</Link>
+              <span>•</span>
+              <Link href="/privacy/microsoft" className="hover:text-blue-600 transition-colors">Microsoft</Link>
+              <span>•</span>
+              <Link href="/privacy/amazon" className="hover:text-blue-600 transition-colors">Amazon</Link>
+              <span>•</span>
+              <Link href="/privacy/meta-facebook" className="hover:text-blue-600 transition-colors">Meta</Link>
+              <span>•</span>
+              <Link href="/privacy/x-twitter" className="hover:text-blue-600 transition-colors">X (Twitter)</Link>
+              <span>•</span>
+              <Link href="/privacy/uber" className="hover:text-blue-600 transition-colors">Uber</Link>
+              <span>•</span>
+              <Link href="/privacy/airbnb" className="hover:text-blue-600 transition-colors">Airbnb</Link>
             </div>
 
             {/* Specialized Auditor & Articles Links */}
@@ -205,6 +221,18 @@ export default function RootLayout({
               <span className="text-slate-400 uppercase tracking-wider text-[10px] block w-full sm:w-auto">Compliance & Editorial:</span>
               <Link href="/articles" className="hover:text-blue-600 transition-colors">
                 Legal Guides & Articles
+              </Link>
+              <span>•</span>
+              <Link href="/glossary" className="hover:text-blue-600 transition-colors">
+                Legal Glossary
+              </Link>
+              <span>•</span>
+              <Link href="/methodology" className="hover:text-blue-600 transition-colors">
+                Scoring Methodology
+              </Link>
+              <span>•</span>
+              <Link href="/editorial-policy" className="hover:text-blue-600 transition-colors">
+                Editorial Standards
               </Link>
               <span>•</span>
               <Link href="/gdpr-checker" className="hover:text-emerald-600 transition-colors">
@@ -226,6 +254,10 @@ export default function RootLayout({
 
             {/* Standard Legal Links */}
             <div className="flex flex-wrap items-center justify-center gap-6 font-bold text-slate-600">
+              <Link href="/cookie-policy" className="hover:text-blue-600 transition-colors">
+                Cookie & Ads Policy
+              </Link>
+              <span>•</span>
               <Link href="/privacy-policy" className="hover:text-blue-600 transition-colors">
                 Privacy Policy
               </Link>

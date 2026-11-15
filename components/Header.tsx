@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Sparkles, Cpu, Lock, BookOpen } from 'lucide-react';
+import { ShieldCheck, Cpu, Lock, BookOpen, Scale, FileText } from 'lucide-react';
 
 export const Header: React.FC = () => {
   return (
@@ -33,25 +33,28 @@ export const Header: React.FC = () => {
 
         {/* Navigation & Status Badges */}
         <div className="flex items-center space-x-3 sm:space-x-4">
-          <nav className="hidden md:flex items-center space-x-4 text-xs font-bold text-slate-600 mr-2">
+          <nav className="hidden md:flex items-center space-x-3.5 text-xs font-bold text-slate-600 mr-2">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
               App Audits
             </Link>
             <Link href="/articles" className="hover:text-blue-600 transition-colors flex items-center space-x-1">
               <BookOpen className="w-3.5 h-3.5 text-blue-600" />
-              <span>Legal Guides</span>
+              <span>Guides</span>
             </Link>
-            <Link href="/gdpr-checker" className="hover:text-blue-600 transition-colors">
+            <Link href="/glossary" className="hover:text-blue-600 transition-colors">
+              Glossary
+            </Link>
+            <Link href="/methodology" className="hover:text-blue-600 transition-colors">
+              Methodology
+            </Link>
+            <Link href="/gdpr-checker" className="hover:text-emerald-600 transition-colors">
               GDPR
             </Link>
             <Link href="/hipaa-audit" className="hover:text-blue-600 transition-colors">
               HIPAA
             </Link>
-            <Link href="/ccpa-compliance" className="hover:text-blue-600 transition-colors">
+            <Link href="/ccpa-compliance" className="hover:text-amber-600 transition-colors">
               CCPA
-            </Link>
-            <Link href="/soc2-evaluator" className="hover:text-blue-600 transition-colors">
-              SOC 2
             </Link>
           </nav>
 

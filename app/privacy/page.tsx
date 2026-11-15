@@ -8,7 +8,7 @@ import { ShieldCheck, ArrowRight, Database, Lock } from 'lucide-react';
 export const metadata: Metadata = {
   metadataBase: new URL('https://termsscanner.in'),
   title: 'Popular Web Service Privacy Audits & Risk Index | Terms Scanner',
-  description: 'Explore comprehensive privacy policy audits, hidden clause breakdowns, and risk scores for TikTok, OpenAI, Instagram, Zoom, Discord, and WhatsApp.',
+  description: 'Explore comprehensive privacy policy audits, hidden clause breakdowns, telemetry trackers, and risk scores for 20 major digital platforms including Google, Apple, Microsoft, Meta, TikTok, OpenAI, and more.',
   alternates: {
     canonical: 'https://termsscanner.in/privacy',
   },

@@ -6,6 +6,7 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { UniversalScanner } from '@/components/UniversalScanner';
 import { POPULAR_SERVICES } from '@/lib/services';
+import { ARTICLES } from '@/lib/articles';
 import { 
   ShieldCheck, 
   Zap, 
@@ -19,7 +20,9 @@ import {
   ChevronDown,
   ChevronUp,
   FileText,
-  Globe
+  Globe,
+  BookOpen,
+  Clock
 } from 'lucide-react';
 
 export default function Home() {
@@ -275,7 +278,66 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 4: Specialized Compliance Auditor Cards */}
+        {/* SECTION 4: Featured Legal Guides & Educational Articles */}
+        <section className="max-w-5xl mx-auto px-4 my-16 space-y-6">
+          <div className="text-center space-y-2">
+            <span className="inline-flex items-center space-x-1.5 px-3.5 py-1 bg-blue-50 border border-blue-200/80 rounded-full text-xs font-bold text-blue-800 shadow-sm">
+              <BookOpen className="w-3.5 h-3.5 text-blue-600" />
+              <span>Consumer Legal Knowledge Base</span>
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Featured Legal & Privacy Guides
+            </h2>
+            <p className="text-xs text-slate-600 max-w-xl mx-auto">
+              In-depth research on predatory clauses, arbitration defense, AI copyright risks, and regulatory compliance.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {ARTICLES.slice(0, 6).map((article) => (
+              <Link
+                key={article.slug}
+                href={`/articles/${article.slug}`}
+                className="p-5 bg-white border border-slate-200 hover:border-blue-500 rounded-2xl transition-all shadow-sm hover:shadow-md group flex flex-col justify-between space-y-3"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">
+                      {article.category}
+                    </span>
+                    <span className="text-[11px] text-slate-400 font-medium flex items-center space-x-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{article.readTime}</span>
+                    </span>
+                  </div>
+                  <h3 className="text-base font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                    {article.summary}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-blue-600 group-hover:translate-x-0.5 transition-all">
+                  <span>Read Guide</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center pt-2">
+            <Link
+              href="/articles"
+              className="inline-flex items-center space-x-2 px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full text-xs font-bold transition-all shadow-sm"
+            >
+              <span>Explore All 16 Legal & Privacy Guides</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </section>
+
+        {/* SECTION 5: Specialized Compliance Auditor Cards */}
         <section className="max-w-5xl mx-auto px-4 my-16 space-y-6">
           <div className="text-center space-y-2">
             <span className="inline-flex items-center space-x-1.5 px-3.5 py-1 bg-blue-50 border border-blue-200/80 rounded-full text-xs font-bold text-blue-800 shadow-sm">
